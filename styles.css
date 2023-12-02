@@ -1,0 +1,264 @@
+@font-face {
+  font-family: "Philosopher";
+  src: url(./assets/font/philosopher-bold.woff2) format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Philosopher";
+  src: url(./assets/font/philosopher-regular.woff2) format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: normal;
+}
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body, h1, h2, p, figure {
+  margin: 0;
+}
+img {
+  max-inline-size: 100%;
+  block-size: auto;
+  font-style: italic;
+  vertical-align: middle;
+}
+
+body {
+  min-block-size: 100vh;
+  min-block-size: 100svh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  font-family: "Philosopher", sans-serif;
+  background-color: var(--bgBody);
+  color: var(--brown);
+  letter-spacing: .08em;
+  line-height: 1.5;
+}
+:root {
+  --bgBody: #d5f2e3;
+  --neutral: #fff;
+  --green: #003e1f;
+  --red: #d90429;
+  --black: #000706;
+  --gold: #ffcf00;
+  --brown: #5c0000;
+}
+
+.Width {
+  margin-inline: auto;
+  inline-size: clamp(20rem, 88vw, 57rem);
+}
+.Products {
+  --radius: .5em;
+  margin-block: 2em;
+  text-align: center;
+}
+.Products-title {
+  margin-bottom: .5em;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+.Products-description {
+  margin-inline: auto;
+  max-inline-size: 60ch;
+  font-size: 1.05rem;
+}
+
+.Container {
+  --gap: 1.5em;
+  max-inline-size: 400px;
+  margin: 4em auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--gap);
+}
+@media (width >=48rem) {
+  .Container {
+    max-inline-size: unset;
+    inline-size: 100%;
+  }
+}
+.Container-pro {
+  inline-size: 13rem;
+  border: .2em solid transparent;
+  border-radius: var(--radius);
+  background-color: var(--neutral);
+  cursor: pointer;
+  position: relative;
+  transition: transform .2s ease-in-out;
+}
+.Container-img, 
+.Featured-img {
+  padding: 2em;
+  background-size: cover;
+}
+
+.Featured {
+  --gap: 1.5em;
+  margin: 5em auto;
+  max-inline-size: 24rem;
+  display: grid;
+  gap: var(--gap);
+}
+@media (width >=48rem) {
+  .Featured {
+    max-inline-size: 49rem;
+    grid-auto-flow: column;
+  }
+}
+.Featured-fig {
+  display: grid;
+  place-items: center;
+  background-color: var(--neutral);
+  border: .2em solid transparent;
+  border-radius: var(--radius);
+  position: relative;
+}
+.Featured-info {
+  text-align: left;
+}
+.Featured-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+.Featured-price {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.Star-wrapper {
+  font-size: 2rem;
+  color: var(--gold)
+}
+.Featured-description {
+  margin-top: 1em;
+  font-size: 1.05rem;
+}
+.Btn-add {
+  margin: 3em auto 0;
+  padding-block: .6em;
+  inline-size: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5em;
+  font-size: 0.95rem;
+  font-weight: 700;
+  background-color: var(--gold);
+  border: .1em solid transparent;
+  border-radius: var(--radius);
+  color: inherit;
+  cursor: pointer;
+  transition: brackground-color .2s ease-in-out, color .2s ease-in-out, transform .2s ease-in-out;
+}
+@media (width >= 48rem) {
+  .Btn-add {
+    margin-inline: 0;
+  }
+}
+.Icon {
+  inline-size: 2rem;
+  block-size: 2rem;
+}
+
+.Attribution {
+  margin-top: -5.5em;
+  padding-block: 2em;
+  display: block;
+  font-weight: 700;
+  text-align: center;
+}
+.Attribution-link {
+  margin-inline: .3em;
+  text-decoration: none;
+  color: var(--green);
+  position: relative;
+}
+
+.Attribution-link::after {
+  content: "";
+  position: absolute;
+  bottom: -.2em;
+  right: 0;
+  inline-size: 100%;
+  block-size: .15em;
+  background-color: currentColor;
+  transition: inline-size .3s ease-in-out;
+}
+
+
+.Container-pro::before {
+  content: "";
+  position: absolute;
+  top: -.2em;
+  left: -.2em;
+  inline-size: 30%;
+  block-size: 2.5rem;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: var(--neutral);
+  letter-spacing: .15em;
+  border-radius: var(--radius) 0 0 0;
+}
+.Container-pro:first-child {
+  border-color: var(--green);
+}
+
+.Featured-fig::before {
+  content: "NEW";
+  position: absolute;
+  top: -.2em;
+  left: -.2em;
+  inline-size: 30%;
+  block-size: 3.5rem;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  background-color: var(--green);
+  color: var(--neutral);
+  letter-spacing: .15em;
+  border-radius: var(--radius) 0 0 0;
+}
+
+.Btn-add:focus-visible,
+.Attribution-link:focus-visible {
+  outline: .15em dotted currentColor;
+  outline-offset: .15em;
+}
+
+@media (hover:hover) {
+  .Container-pro:hover{
+    transform: scale(1.1);
+  }
+  .Btn-add:hover {
+    background-color: var(--brown);
+    color: var(--gold);
+    transform: scale(1.05);
+  }
+  .Attribution-link:hover::after {
+    inline-size: 0;
+    left: 0;
+  }
+}
+.Attribution-link:focus-visible::after {
+  inline-size: 0;
+}
+
+.Container-pro:first-child::before {
+  content: "NEW";
+  background-color: var(--green);
+}
+.Container-pro:nth-child(2)::before {
+  content: "-23%";
+  background-color: var(--red);
+}
